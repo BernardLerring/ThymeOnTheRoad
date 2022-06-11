@@ -3,14 +3,18 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
 
-class Post(models.Model):
+STATUS = ((0, "Draft"), (1, "Published"))
+
+
+class Recipe (models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="recipe_posts")
     created_on = models.DateTimeField(auto_now_add=True)
-    content = models.TextField()
+    description = models.TextField()
     featured_image = CloudinaryField('image', default='placeholder')
     excerpt = models.TextField(blank=True)
+    status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(User, related_name="recipe_likes", blank=True)
 
     class Meta:
@@ -23,7 +27,7 @@ class Post(models.Model):
         return self.likes.count()
 
 
-class Comment(models.Model):
+class Comment (models.Model):
     post = models.ForeignKey(User, on_delete=models.CASCADE, related_name="recipe_comments")
     name = models.CharField(max_length=50)
     email = models.EmailField()
