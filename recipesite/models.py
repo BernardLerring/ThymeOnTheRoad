@@ -17,7 +17,7 @@ class Recipe (models.Model):
     featured_image = CloudinaryField('image', default='placeholder')
     excerpt = models.TextField(blank=True)
     status = models.IntegerField(choices=STATUS, default=0)
-    cuisine = models.TextField(max_length=20, unique=True, null=True, blank=False, choices=CUISINE, default=4)
+    cuisine = models.IntegerField(choices=CUISINE, default=1)
     likes = models.ManyToManyField(User, related_name="recipe_likes", blank=True)
 
     class Meta:
