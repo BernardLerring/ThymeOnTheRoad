@@ -4,6 +4,7 @@ from cloudinary.models import CloudinaryField
 
 
 STATUS = ((0, "Draft"), (1, "Published"))
+CUISINE = ((0, "Italian"), (1, "Indian"), (2, "Chinese"), (3, "Thai"), (4, "American"))
 
 
 class Recipe (models.Model):
@@ -11,10 +12,12 @@ class Recipe (models.Model):
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="recipe_posts")
     created_on = models.DateTimeField(auto_now_add=True)
-    description = models.TextField()
+    ingredients = models.TextField()
+    method = models.TextField(null=True, blank=False)
     featured_image = CloudinaryField('image', default='placeholder')
     excerpt = models.TextField(blank=True)
     status = models.IntegerField(choices=STATUS, default=0)
+    cuisine = models.TextField(max_length=20, unique=True, null=True, blank=False, choices=CUISINE, default=4)
     likes = models.ManyToManyField(User, related_name="recipe_likes", blank=True)
 
     class Meta:
