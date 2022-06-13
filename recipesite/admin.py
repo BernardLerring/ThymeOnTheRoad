@@ -1,10 +1,10 @@
 from django.contrib import admin
-from.models import Recipe
+from.models import Recipe, Comment
 from django_summernote.admin import SummernoteModelAdmin
+
 
 @admin.register(Recipe)
 class RecipeAdmin(SummernoteModelAdmin):
-
 
     list_display = ('title', 'cuisine', 'created_on')
     search_fields = ['cuisine', 'title', 'author']
@@ -13,3 +13,14 @@ class RecipeAdmin(SummernoteModelAdmin):
     summernote_fields = ('content')
 
 
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+
+    list_display = ('name', 'body')
+    list_filter = ('approved', 'created_on')
+    search_fields = ('email', 'post')
+    actions = ['approve_comments']
+
+    def approve_comments(self, request, queryset):
+        queryset.update(approved=True)
+    

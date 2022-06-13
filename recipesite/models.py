@@ -4,7 +4,7 @@ from cloudinary.models import CloudinaryField
 
 
 STATUS = ((0, "Draft"), (1, "Published"))
-CUISINE = ((0, "Italian"), (1, "Indian"), (2, "Chinese"), (3, "Thai"), (4, "American"))
+CUISINE = ((0, "Italian"), (1, "Indian"), (2, "Chinese"), (3, "Thai"), (4, "American"), (5, "Mexican"), (6, "Middle Eastern"), (7, "Miscellaneous"))
 
 
 class Recipe (models.Model):
@@ -35,7 +35,9 @@ class Comment (models.Model):
     name = models.CharField(max_length=50)
     email = models.EmailField()
     body = models.TextField()
+    status = models.IntegerField(choices=STATUS, default=0)
     created_on = models.DateTimeField(auto_now_add=True)
+    approved = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['created_on']
