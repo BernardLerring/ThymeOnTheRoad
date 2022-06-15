@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from tinymce import models as tinymce_models
 from cloudinary.models import CloudinaryField
 
 
@@ -12,12 +13,12 @@ class Recipe (models.Model):
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="recipe_posts")
     created_on = models.DateTimeField(auto_now_add=True)
-    ingredients = models.TextField()
-    method = models.TextField(null=True, blank=False)
+    ingredients = tinymce_models.HTMLField()
+    method = tinymce_models.HTMLField(null=True, blank=False)
     featured_image = CloudinaryField('image', default='placeholder')
     excerpt = models.TextField(blank=True)
     status = models.IntegerField(choices=STATUS, default=0)
-    cuisine = models.IntegerField(choices=CUISINE, default=1)
+    cuisine = models.IntegerField(choices=CUISINE, default=0)
     likes = models.ManyToManyField(User, related_name="recipe_likes", blank=True)
 
     class Meta:
@@ -31,7 +32,7 @@ class Recipe (models.Model):
 
 
 class Comment (models.Model):
-    post = models.ForeignKey(User, on_delete=models.CASCADE, related_name="recipe_comments")
+    recipe = models.ForeignKey(User, on_delete=models.CASCADE, related_name="recipe_comments")
     name = models.CharField(max_length=50)
     email = models.EmailField()
     body = models.TextField()
@@ -44,3 +45,6 @@ class Comment (models.Model):
 
     def __str__(self):
         return f"comment {self.body} by {self.name}"
+
+
+
