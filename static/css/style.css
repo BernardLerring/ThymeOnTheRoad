@@ -1,16 +1,16 @@
 body {
-    background-color: #F9FAFC;
+    background-color: #e9b08e;
 }
 
 .brand {
-    font-family: Lato, sans-serif;
-    font-size: 1.4rem;
+    font-family: Merienda, sans-serif;
+    font-size: 3rem;
     font-weight: 700;
-    color: #4A4A4F;
+    color: #dbcdb5;
 }
 
 .green-on {
-    color: #30b750;
+    color:#6c9e4f;
 }
 
 .thin {
@@ -18,18 +18,28 @@ body {
 }
 
 .light-bg {
-    background-color: #fff;
+    background-color: #a4330d;
 }
 
 .dark-bg {
-    background-color: #445261;
+    background-color: #ed6e3a;
 }
 
 .main-bg {
-    background-color: #F9FAFC;
+    background-color: #dbcdb5;
 }
 
-.card {
+.navbar-text {
+    font-family: Merienda, sans-serif;
+    font-size: 1.4rem;
+}
+
+.nav-item {
+    font-family: Merienda, sans-serif;
+}
+
+.card-body {
+    font-family: Merienda, sans-serif;
     border: none;
     background-color: transparent;
 }
@@ -43,16 +53,17 @@ body {
     bottom: 5%;
     min-width: 30%;
     left: -2px;
-    background-color: #23BBBB;
+    background-color: #5e3c2c;
 }
 
 .author {
-    color: white;
+    color: #dbcdb5;
     margin: 4px;
     text-transform: uppercase;
 }
 
 .masthead {
+    font-family: Merienda, sans-serif;
     margin-top: 10px;
     overflow: hidden;
     position: relative;
@@ -63,7 +74,7 @@ body {
 
 .masthead-text {
     background-color: #445261;
-    color: white;
+    color: #dbcdb5;
     position: relative;
 }
 
@@ -86,6 +97,11 @@ body {
     z-index: 100;
 }
 
+.footer {
+    font-family: Merienda, sans-serif;
+    color: #dbcdb5
+}
+
 .post-link {
     text-decoration: none;
     color: #445261;
@@ -93,10 +109,11 @@ body {
 
 .post-link:hover,
 .page-link {
-    color: #E84610;
+    color: #ed6e3a;
 }
 
 .post-title {
+    font-family: Merienda, sans-serif;
     margin-top: 20%;
     margin-left: 5%;
 }
