@@ -4,9 +4,22 @@ body {
 
 .brand {
     font-family: Merienda, sans-serif;
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 700;
-    color: #dbcdb5;
+    color: #5e3c2c;
+}
+
+.recipe-link {
+    color:#6c9e4f;
+    text-decoration: none;
+}
+
+.recipe-link:hover {
+    color: #ed6e3a
+}
+
+.card-text {
+    color: #a4330d;
 }
 
 .green-on {
@@ -18,7 +31,7 @@ body {
 }
 
 .light-bg {
-    background-color: #a4330d;
+    background-color: #ed6e3a;
 }
 
 .dark-bg {
@@ -34,14 +47,18 @@ body {
     font-size: 1.4rem;
 }
 
-.nav-item {
+.nav-link {
     font-family: Merienda, sans-serif;
+}
+
+.brand:hover {
+    color: #dbcdb5;
 }
 
 .card-body {
     font-family: Merienda, sans-serif;
     border: none;
-    background-color: transparent;
+    
 }
 
 .image-container {
@@ -99,7 +116,7 @@ body {
 
 .footer {
     font-family: Merienda, sans-serif;
-    color: #dbcdb5
+    color: #5e3c2c
 }
 
 .post-link {
@@ -156,4 +173,10 @@ body {
     color: #E84610;
     background: transparent;
     border: none;
+}
+
+.divider {
+    display: block; height: 1px;
+    border: 0; border-top: 5px solid #6c9e4f;
+    margin: 1em 0; padding: 0;
 }
