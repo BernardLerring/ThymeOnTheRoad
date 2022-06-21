@@ -63,6 +63,7 @@ body {
 
 .image-container {
     position: relative;
+    padding-bottom: 5px;
 }
 
 .image-flash {
@@ -90,9 +91,12 @@ body {
 }
 
 .masthead-text {
-    background-color: #445261;
+    background-color: #5e3c2c;
     color: #dbcdb5;
     position: relative;
+    padding-top: 5px;
+    padding-left: 5px;
+    text-align: center;
 }
 
 .masthead-image {
@@ -107,10 +111,10 @@ body {
     right: 90%;
     height: 100%;
     width: 150%;
-    background: #445261;
-    -webkit-transform: skew(15deg);
-    -moz-transform: skew(15deg);
-    transform: skew(15deg);
+    background: #5e3c2c;
+    -webkit-transform: skew(20deg);
+    -moz-transform: skew(20deg);
+    transform: skew(8deg);
     z-index: 100;
 }
 
@@ -158,7 +162,7 @@ body {
 
 .link:hover,
 .link:active {
-    color: #445261;
+    color: #a4330d;
     text-decoration: underline;
 }
 
@@ -191,4 +195,17 @@ body {
 
 .social:visited {
     color: #6c9e4f;
+}
+
+.container {
+    font-family: Merienda, sans serif;
+    color: #5e3c2c;
+}
+
+.btn-reset {
+    color: #5e3c2c;
+}
+
+.btn-reset:hover {
+    color: #a4330d;
 }

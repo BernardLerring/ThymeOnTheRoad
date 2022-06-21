@@ -20,7 +20,7 @@ class Recipe (models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     cuisine = models.IntegerField(choices=CUISINE, default=0)
     likes = models.ManyToManyField(User, related_name="recipe_likes", blank=True)
-
+    
     class Meta:
         ordering = ['-created_on']
 
@@ -32,7 +32,7 @@ class Recipe (models.Model):
 
 
 class Comment (models.Model):
-    recipe = models.ForeignKey(User, on_delete=models.CASCADE, related_name="recipe_comments")
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name="comments")
     name = models.CharField(max_length=50)
     email = models.EmailField()
     body = models.TextField()
