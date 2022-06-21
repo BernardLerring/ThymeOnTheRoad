@@ -209,3 +209,9 @@ body {
 .btn-reset:hover {
     color: #a4330d;
 }
+
+.card {
+    padding-top: 5px;
+    padding-left: 5px;
+}
+
