@@ -141,18 +141,18 @@ body {
 }
 
 .btn-signup {
-    background-color: #23BBBB;
-    color: #fff;
+    background-color: #6c9e4f;
+    color: #dbcdb5;
 }
 
 .btn-signup:hover,
 .btn-signup:active {
-    background-color: #fff;
-    color: #23BBBB;
+    background-color: #a4330d;
+    color: #dbcdb5;
 }
 
 .link {
-    color: #23BBBB;
+    color: #6c9e4f;
     text-decoration: none;
 }
 
@@ -179,4 +179,16 @@ body {
     display: block; height: 1px;
     border: 0; border-top: 5px solid #6c9e4f;
     margin: 1em 0; padding: 0;
+}
+
+.social {
+    color: #5e3c2c;
+}
+
+.social:hover {
+    color: #dbcdb5;
+}
+
+.social:visited {
+    color: #6c9e4f;
 }
