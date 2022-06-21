@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row g-0">
             <div class="col-md-6 masthead-text">
-                <!-- Recipe title goes in these h1 tags -->
+                <!-- Recipe title goes in the h1 tags -->
                 <h1 class="recipe-title">{{ recipe.title }}</h1>
                 <!-- Recipe author goes before the | the date the recipe was created goes after -->
                 <p class="recipe-subtitle"> {{ recipe.author }}| {{ recipe.created_on }}</p>
@@ -26,7 +26,7 @@
     <div class="row">
         <div class="col card mb-4  mt-3 left  top">
             <div class="card-body">
-                <!-- The post content goes inside the card-text. -->
+                <!-- The recipe main content goes inside the card-text. -->
                 <!-- Use the | safe filter inside the template tags -->
                 <p class="card-text ">
                     {{ recipe.content | safe }}
@@ -34,8 +34,30 @@
                 <div class="row">
 
                     <div class="col-1">
-                        <!-- The number of likes goes before the closing strong tag -->
-                        <strong class="text-secondary"><i class="far fa-heart"></i> {{ recipe.number_of_likes }} </strong>
+                        <strong>
+                            {% if user.is_authenticated %}
+                            <form class="d-inline" action="{% url 'recipe_like' recipe.slug %}" method="POST">
+                                {% csrf_token %}
+                                {% if liked %}
+
+                                <button type="submit" name="recipepost_id" value="{{ recipe.slug }}" class="btn-like"><i
+                                        class="fas fa-heart"></i></button>
+
+                                {% else %}
+
+                                <button type="submit" name="recipepost_id" value="{{ recipe.slug }}" class="btn-like"><i
+                                    class="far fa-heart"></i></button>
+
+                                {% endif %}
+
+                            </form>
+                            {% else %}
+
+                            <span class="text-secondary"><i class="far fa-heart"></i></span>
+                            {% endif %}
+                            <span class="text-secondary"> {{ recipe.number_of_likes }}</span>
+                        </strong>
+
                     </div>
                     <div class="col-1">
                         {% with comments.count as total_comments %}
@@ -57,11 +79,11 @@
         <div class="col-md-8 card mb-4 mt-3">
             <h3>Comments:</h3>
             <div class="card-body">
-                <!-- We want a for loop inside the tags to iterate through each comment in comments -->
+                <!-- We use a for loop inside the tags to iterate through each comment in comments -->
                 {% for comment in comments %}
                 <div class="comments" style="padding: 10px;">
                     <p class="font-weight-bold">
-                        <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
+                        <!-- The commenter's name goes here -->
                         {{ comment.name }}
                         <span class=" text-muted font-weight-normal">
                             <!-- The comment's created date goes here -->
@@ -77,6 +99,12 @@
         </div>
         <div class="col-md-4 card mb-4 mt-3 ">
             <div class="card-body">
+                {% if commented %}
+                <div class="alert alert-success" role="alert">
+                    You comment is awaiting admin approval
+                </div>
+                {% else %}
+
                 {% if user.is_authenticated %}
 
                 <h2>Tell us what you think!</h2>
@@ -86,7 +114,7 @@
                     {% csrf_token %}
                     <button type="submit" class="comment-submit btn btn-signup btn-lg">Submit Comment</button>
                 </form>
-                
+                {% endif %}
                 {% endif %}
             </div>
         </div>
