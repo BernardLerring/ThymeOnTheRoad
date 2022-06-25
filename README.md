@@ -86,13 +86,9 @@ Being a recipe website, images of the food are important. However, as lots of th
 
 ### Register *******
 
-- The form indicates the 4 required fields for first and last names, location, email and preferred item to swap.
+- The form indicates the required fields of Username, Email (optional), a password and then to re-enter password to confirm they match.
 
-- The colours contrast to allow the user to easily navigate the form.
-
-- The "Let's Get Swapping" button changes colour when hovered over, again indicating to the user that it can be pushed.
-
-<img width="990" alt="Form" src="https://user-images.githubusercontent.com/92179145/143723555-5c9c9871-517a-49a7-b88b-d97f071996ba.png">
+<img>
 
 ## Technology used
 
@@ -142,7 +138,7 @@ Being a recipe website, images of the food are important. However, as lots of th
 
 - I confirm that the site is easy to read and navigate by passing it through the Lighthouse tool on DevTools.
 
-<img width="990" alt="Accessibility" src="https://user-images.githubusercontent.com/92179145/143723766-3fcd3b10-5716-42b8-85c2-267968783df7.png">
+<img>
 
 ## Fixed Bugs 
 
@@ -182,7 +178,7 @@ It can also be found at [ALotToSwap](https://bernardlerring.github.io/ALotToSwap
 
 - All icons on the site are taken from [FontAwesome](https://fontawesome.com/).
 
-- Both fonts used on the site are from [Google Fonts](https://fonts.google.com/).
+- The font used on the site is from [Google Fonts](https://fonts.google.com/).
 
 ### Media
 
@@ -200,8 +196,6 @@ It can also be found at [ALotToSwap](https://bernardlerring.github.io/ALotToSwap
 
 ### Thanks
 
-- Dave H from the Slack Community for helping me sort out my issues with GitHub.
+- My Partner for being my UX companion for the site and for helping test it for me, as well as providing the artwork.
 
-- My Partner for being my UX companion for the site and for helping test it for me.
-
-- My mentor for his feedback and encouragement throughout the project.
+- My mentor Chris for his feedback and encouragement throughout the project.
