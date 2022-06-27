@@ -6,6 +6,7 @@
     <div class="row">
 
         <!-- Recipe Entries Column -->
+
         <div class="col-12 mt-3 left">
             <div class ="row">
             {% for recipe in recipe_list %}
@@ -42,6 +43,9 @@
             {% endfor %}
             </div>
         </div>
+
+        <!-- Pagination to load certain amount of recipes per page -->
+
     </div>
     {% if is_paginated %}
     <nav aria-label="Page navigation">

@@ -5,13 +5,19 @@
     <div class="container">
         <div class="row g-0">
             <div class="col-md-6 masthead-text">
+
                 <!-- Recipe title goes in the h1 tags -->
+
                 <h1 class="recipe-title">{{ recipe.title }}</h1>
+
                 <!-- Recipe author goes before the | the date the recipe was created goes after -->
+
                 <p class="recipe-subtitle"> {{ recipe.author }}| {{ recipe.created_on }}</p>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
+
                 <!-- The featured image URL goes in the src attribute -->
+
                 {% if "placeholder" in recipe.featured_image.url %}
                 <img src="#" width="100%">
                 {% else %}
@@ -26,8 +32,9 @@
     <div class="row">
         <div class="col card mb-4  mt-3 left  top">
             <div class="card-body">
+
                 <!-- The recipe main content goes inside the card-text. -->
-                <!-- Use the | safe filter inside the template tags -->
+               
                 <p class="card-text ">
                     {{ recipe.content | safe }}
                 </p>
@@ -62,7 +69,9 @@
                     <div class="col-1">
                         {% with comments.count as total_comments %}
                         <strong class="text-secondary"><i class="far fa-comments"></i>
+
                             <!-- Our total_comments variable goes before the closing strong tag -->
+
                             {{ total_comments }}</strong>
                         {% endwith %}
                     </div>
@@ -75,28 +84,29 @@
             <hr>
         </div>
     </div>
+
+     <!-- Comment section -->  
+
     <div class="row">
         <div class="col-md-8 card mb-4 mt-3">
             <h3>Comments:</h3>
             <div class="card-body">
-                <!-- We use a for loop inside the tags to iterate through each comment in comments -->
                 {% for comment in comments %}
                 <div class="comments" style="padding: 10px;">
                     <p class="font-weight-bold">
-                        <!-- The commenter's name goes here -->
                         {{ comment.name }}
                         <span class=" text-muted font-weight-normal">
-                            <!-- The comment's created date goes here -->
                             {{ comment.created_on }}
                         </span> wrote:
                     </p>
-                    <!-- The body of the comment goes before the | -->
-                    {{ comment.body | linebreaks }}
+                        {{ comment.body | linebreaks }}
                 </div>
-                <!-- Our for loop ends here -->
                 {% endfor %}
             </div>
         </div>
+
+        <!-- User message -->
+
         <div class="col-md-4 card mb-4 mt-3 ">
             <div class="card-body">
                 {% if commented %}

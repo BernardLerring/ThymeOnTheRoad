@@ -212,3 +212,7 @@ body {
     color:#dbcdb5;
     background-color: #6c9e4f;
 }
+
+.navbar-toggler:active {
+    color: #6c9e4f;
+}
