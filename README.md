@@ -128,11 +128,11 @@ Being a recipe website, images of the food are important. However, as lots of th
 
 - I confirm that the site works in both Safari and Chrome.
 
-## Fixed Bugs 
-
-- 
+## Fixed Bugs
 
 - All Bootstrap classes resolve flow and sizing issues on smaller devices.
+
+- Users cannot submit empty fields on the registration form.
 
 ## Unfixed Bugs
 
@@ -170,11 +170,19 @@ The site was deployed to Heroku by following these steps:
 
 ### Future Development Opportunities
 
+## User Focused
+
 - A form could be added so that users can submit their own recipes for adding to the site with admin approval.
 
-- The site could have further sections for types of cuisine, time taken to cook recipes so users could make a simpler journey round the site to choose what they want to cook.
+- The site could have further sections for types of cuisine, time taken to cook recipes so users could make a simpler journey round the site to choose what/how they want to cook.
 
-- 
+- Videos could be added to each recipe of the cooking method.
+
+- Clicking on the "Recipes from time spent travelling and cooking" could link to an "About" section with info about the site oweners.
+
+## Developer Focused
+
+- Automated tests could be written and used to test site functionality.
 
 ### Thanks
 
