@@ -150,7 +150,7 @@ The site was deployed to Heroku by following these steps:
 
 4. Deploy the site through choosing Github in the deploy section
 
-5. Click on deployed site link once complete to take you to [ThymeOnTheRoad]()
+5. Click on deployed site link once complete to take you to [ThymeOnTheRoad](https://thymeontheroad.herokuapp.com/)
 
 ## Credits
 
@@ -172,7 +172,7 @@ The site was deployed to Heroku by following these steps:
 
 ## User Focused
 
-- A form could be added so that users can submit their own recipes for adding to the site with admin approval.
+- A form could be added so that users can submit their own recipes in the same format as the site, for future addition to the site with admin approval.
 
 - The site could have further sections for types of cuisine, time taken to cook recipes so users could make a simpler journey round the site to choose what/how they want to cook.
 

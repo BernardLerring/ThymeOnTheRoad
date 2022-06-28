@@ -22,14 +22,6 @@ body {
     color: #a4330d;
 }
 
-.green-on {
-    color:#6c9e4f;
-}
-
-.thin {
-    font-weight: 300;
-}
-
 .light-bg {
     background-color: #ed6e3a;
 }
@@ -103,8 +95,6 @@ body {
     position: relative;
     overflow: hidden;
 }
-
-
 
 .footer {
     font-family: Merienda, sans-serif;

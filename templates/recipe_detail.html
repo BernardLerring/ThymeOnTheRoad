@@ -19,9 +19,9 @@
                 <!-- The featured image URL goes in the src attribute -->
 
                 {% if "placeholder" in recipe.featured_image.url %}
-                <img src="#" width="100%">
+                <img src="#" alt="{{ recipe.title }}">
                 {% else %}
-                <img src=" {{ recipe.featured_image.url }}" width="100%">
+                <img src="{{ recipe.featured_image.url }}" alt="{{ recipe.title }}">
                 {% endif %}
             </div>
         </div>
