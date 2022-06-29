@@ -58,7 +58,17 @@ Being a recipe website, images of the food are important. However, as lots of th
 
 ## Wireframes/Sketches
 
-<img>
+- Desktop Site
+
+![Wireframes](/readme_images/wireframe.jpg "Wireframe Desktop")
+
+- Mobile Site
+
+![Wireframes Mobile](/readme_images/wireframemobile.jpg "Wireframe Mobile")
+
+- Recipe Detail page
+
+![Wireframes Recipe Detail](/readme_images/wireframerecipe.jpg "Wireframe Recipe Detail")
 
 ## Features
 
@@ -87,6 +97,16 @@ Being a recipe website, images of the food are important. However, as lots of th
 - The recipes load 6 to a page, with pagination to allow users to move to "next" and "previous" pages once 6 has been reached.
 
 ![Recipes](/readme_images/recipesmain.png "Recipes")
+
+- When a recipe is clicked on you get the recipe detail, including the ability to comment and like a recipe (if registered/signed in)
+
+![Recipe Detail](/readme_images/recipedetail.png "Recipe Detail")
+
+### Pagination
+
+- The pagination buttons appear when 6 recipes have loaded on one page allowing users to click to forward to the next set of recipes, or back to the previous.
+
+![Next Button](/readme_images/nextbutton.png "Next Button") ![Previous Button](/readme_images/previousbutton.png "Previous Button")
 
 ### Footer
 
@@ -142,6 +162,32 @@ Being a recipe website, images of the food are important. However, as lots of th
 
 - I confirm that the site works in both Safari and Chrome.
 
+- Images below show the sign-up process
+
+![Registration page](/readme_images/register.png "Register")
+
+![Registration page completed](/readme_images/registrationpagecompleted.png "Registration page completed for submission")
+
+- Once the user is signed up, they have the ability to comment or like recipes
+
+![Comment Box](/readme_images/comment.png "Comment Box")
+
+- They can also "like" recipes
+
+![Likes](/readme_images/likes.png "Likes")
+
+- The comment, once approved by Admin appears on the site
+
+![Approved Comment](/readme_images/approved.png "Approved Comment")
+
+- Users can sign out of their account
+
+![Sign Out Page](/readme_images/signout.png "Sign Out")
+
+- Returning users can sign in
+
+![Sign In Page](/readme_images/signin.png "Sign In")
+
 ## Fixed Bugs
 
 - All Bootstrap classes resolve flow and sizing issues on smaller devices.
@@ -151,6 +197,8 @@ Being a recipe website, images of the food are important. However, as lots of th
 ## Unfixed Bugs
 
 - HTML errors from W3C validator that don't affect site functionality.
+
+- Having removed the inline styling on the masthead image, the size of this image changed.
 
 ## Deployment
 
