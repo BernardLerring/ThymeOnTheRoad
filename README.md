@@ -4,17 +4,27 @@
 
 This is the main website for the recipe site Thyme On The Road. This website was inspired by mine and my wife's travels, and our cooking whilst we were on our adventures. Cooking in a hostel, tent or camper van doesn't have to be boring or unhealthy!
 
-<img>
+![Responsive Images](/readme_images/responsive.png "Responsive Images")
 
 ## User Experience
 
+### Site Aims
+
+![Flow Diagram of User Experience](/readme_images/flowchart.png "User Experience")
+
 ### User Stories
+
+![User Stories](/readme_images/userstories.png "User Stories")
 
 ### First time user goals
 
 - First time users should be able to easily navigate the site and view the content on any device.
 
+- First time users want the site to only show a certain number of recipes on the front page so as not to overwhelm.
+
 - First time users should be able to view recipes, and follow the methods to cook them for themselves.
+
+- First time users should be able to view the recipe in more detail
 
 - First time users should be able to sign up to the site and create an account.
 
@@ -34,7 +44,9 @@ This is the main website for the recipe site Thyme On The Road. This website was
 
 ### Colour scheme:
 
-The main colours used are pastel shades of orange, green, red and brown. THese are coupled with a beige that serves as the light background for much of the site. It gives the site a more organic feel than clinical bright colours. I found the pallet for this at [ColorsWall] (https://colorswall.com/palette/31431).
+The main colours used are pastel shades of orange, green, red and brown. THese are coupled with a beige that serves as the light background for much of the site. It gives the site a more organic feel than clinical bright colours. I found the palette for this at [ColorsWall] (https://colorswall.com/palette/31431).
+
+![Color Palette](/readme_images/colourpalette.png "Coler Palette")
 
 ### Fonts/Typography:
 
@@ -68,11 +80,13 @@ Being a recipe website, images of the food are important. However, as lots of th
 
 - The navigation makes it clear to the user what can be accessed on the site.
 
-<img>
+![Header and Navigation](/readme_images/navbar.png "Header/Navbar")
 
 ### Recipes
 
 - The recipes load 6 to a page, with pagination to allow users to move to "next" and "previous" pages once 6 has been reached.
+
+![Recipes](/readme_images/recipesmain.png "Recipes")
 
 ### Footer
 
@@ -82,13 +96,13 @@ Being a recipe website, images of the food are important. However, as lots of th
 
 - The footer colours mirror the header, with the FontAwesome icons changing colour when hovered over to indicate to the user that they can be pressed. They also change to a different colour to show the user when they have been active.
 
-<img>
+![Footer](/readme_images/footer.png "Footer")
 
 ### Register 
 
 - The form indicates the required fields of Username, Email (optional), a password and then to re-enter password to confirm they match.
 
-<img>
+![Registration/Sign-up page](/readme_images/register.png "Registration/Sign-up page")
 
 ## Technology used
 

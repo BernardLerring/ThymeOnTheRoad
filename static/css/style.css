@@ -15,7 +15,7 @@ body {
 }
 
 .recipe-link:hover {
-    color: #ed6e3a
+    color: #ed6e3a;
 }
 
 .card-text {
@@ -49,8 +49,7 @@ body {
 
 .card-body {
     font-family: Merienda, sans-serif;
-    border: none;
-    
+    border: none;   
 }
 
 .image-container {
