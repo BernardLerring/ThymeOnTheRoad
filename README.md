@@ -200,19 +200,148 @@ Being a recipe website, images of the food are important. However, as lots of th
 
 - Having removed the inline styling on the masthead image, the size of this image changed.
 
-## Deployment
+## Creation and Deployment
 
-The site was deployed to Heroku by following these steps:
+The site was created in Django using the following steps:
 
-1. Create a Heroku account, and choose create new app
+1. In the terminal window, of the CI template, install Django and gunicorn using the command "pip3 install 'django<4' gunicorn"
 
-2. Ensure config vars are set up for app
+2. Install supporting libraries using the command "pip3 install dj_database_url psycopg2"
 
-3. Add buildpack for Python.
+3. Install Cloudinary to store image files using the command "pip3 install dj3-cloudinary-storage"
 
-4. Deploy the site through choosing Github in the deploy section
+4. Create a requirements.txt file using the command "pip3 freeze --local > requirements.txt"
 
-5. Click on deployed site link once complete to take you to [ThymeOnTheRoad](https://thymeontheroad.herokuapp.com/)
+5. Create the project and give it a name using the command "django-admin startproject PROJ_NAME ." The . is important!!
+
+6. Create the app and name it using the command "python3 manage.py startapp APP_NAME"
+
+7. in your settings.py file, add to the installed apps section: 
+
+INSTALLED_APPS = [
+    …
+    'APP_NAME',
+]
+
+8. Save your file
+
+9. Back in the terminal window, migrate your changes using the command "python3 manage.py makemigrations" followed by "python3 manage.py migrate"
+
+10. Run the server to test that your app had built using the command "python3 manage.py runserver"
+
+To deploy the app to Heroku, use the following steps:
+
+1. Sign up to Heroku
+
+2. Click on the "create new app" button.
+
+3. Create a new app with the format "APP_NAME". Don't forget to pick your location as Europe.
+
+4. Add a database to app resources by clicking on the resources tab on your app dashboard and search for and add "Heroku PostGres".
+
+5. Copy the DATABASE_URL value into your config vars section located under the settings tab in your app dashboard byt clicking "Reveal Config Vars".
+
+6. Back in gitpod, create a new env.py file in the top level directory.
+
+7. Inside the env.py file, import os library byt writing "import os" at the top of your code.
+
+8. Set environment variables using the following syntax: os.environ["DATABASE_URL"] = "Paste in Heroku DATABASE_URL Link"
+
+9. Add in a secret key using the following syntax: os.environ["SECRET_KEY"] = "Make up your own randomSecretKey"
+
+10. Back in your heroku dashboard, add the secret key to your config vars by using "SECRET_KEY, “randomSecretKey”" and giving your secret key a set of numbers for a value.
+
+11. Back in settings.py, reference env.py using the following syntax: 
+
+from pathlib import Path
+import os
+import dj_database_url
+
+if os.path.isfile("env.py"):
+   import env
+
+12. Remove the insecure secret key and replace with the secret key from Heroku. 
+
+SECRET_KEY = os.environ.get('SECRET_KEY')
+
+13. Comment out the old DataBases Section.
+
+14. Add in a new databases section using: 
+
+DATABASES = {
+   'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+}
+
+15. Back in the terminal window, make your migrations again using the "python3 manage.py migrate" command
+
+16. In the Cloudinary app that you have been signed into, copy the URL you have been given from the Cloudinary dashboard.
+
+17. Back in env.py, add it using the following syntax: os.environ["CLOUDINARY_URL"] = "cloudinary://************************"
+
+18. In Heroku, add the Cloudinary URL to config vars in the settings tab. 
+
+19. Add "DISABLE_COLLECTSTATIC" to the Heroku config vars. This will be removed before final deployment.
+
+20. In settings.py, add the Cloudinary libraries to installed apps: 
+
+INSTALLED_APPS = [
+    …,
+    'cloudinary_storage',
+    'django.contrib.staticfiles',
+    'cloudinary',
+    …,
+]
+
+The order in which these are written is important.
+
+21. Tell Django to use Cloudinary to store media and static files
+Place under the Static files Note: STATIC_URL = '/static/'
+
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+MEDIA_URL = '/media/'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+22. Link your fiule to the templates directory in Heroku. Place it under the BASE_DIR line. 
+
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+
+23. Change the templates directory to TEMPLATES_DIR and place within the TEMPLATES array. 
+
+TEMPLATES = [
+    {
+        …,
+        'DIRS': [TEMPLATES_DIR],
+       …,
+            ],
+        },
+    },
+]
+
+24. Add Heroku Hostname to ALLOWED_HOSTS: 
+
+ALLOWED_HOSTS = ["PROJ_NAME.herokuapp.com", "localhost"]
+
+25. Back in GitPod create 3 new folders at the top level directory for Media, Static and Templates.
+
+26. Create a procfile on the top level directory. 
+
+27. In you procfile, add the following code: web: gunicorn PROJ_NAME.wsgi
+
+28. Back in the GitPod terminal window, Add, Commit and Push your code. 
+
+git add .
+git commit -m “Deployment Commit”
+git push
+
+29. Back in Heroku, deploy the content manually through Heroku by using GitHub as the main deployment method on the main branch.
+
+30. Once you have then built your app, styled it, and written all code, go back to Heroku and click on "Deploy Branch"
+
+31. The build will happen in front of you, and once it has successfully built your app, you can click on "Open App" to take you to your live site.
+TheRoad live site, click here [ThymeOnTheRoad](https://thymeontheroad.herokuapp.com/)
 
 ## Credits
 
