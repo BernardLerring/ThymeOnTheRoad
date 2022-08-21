@@ -35,6 +35,14 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 ALLOWED_HOSTS = ['thymeontheroad.herokuapp.com', 'localhost']
 
+EMAIL_HOST = 'smtp-relay.sendinblue.com'
+EMAIL_HOST_USER = 'bernardlerring13@gmail.com'
+EMAIL_HOST_PASSWORD = 'FzKCNRfhd6wBUmIV'
+DEFAULT_FROM_EMAIL = 'bernardlerring13@gmail.com'
+SERVER_EMAIL = 'bernardlerring13@gmail.com'
+EMAIL_USE_SSL = True
+EMAIL_PORT = 465
+
 
 # Application definition
 
