@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Recipe
+from .models import Comment
 from .forms import CommentForm
 
 
@@ -77,3 +78,17 @@ class RecipeLike(View):
             recipe.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
+
+
+class CommentDetail(View):
+
+    def get(self, request, id, *args, **kwargs):
+        comment = get_object_or_404(Comment, id=id)
+
+        return render(
+            request,
+            "comment_detail.html",
+            {
+                "comment": comment,
+            },
+        )

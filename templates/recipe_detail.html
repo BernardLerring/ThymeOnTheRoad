@@ -34,7 +34,7 @@
             <div class="card-body">
 
                 <!-- The recipe main content goes inside the card-text. -->
-               
+
                 <p class="card-text ">
                     {{ recipe.content | safe }}
                 </p>
@@ -85,7 +85,7 @@
         </div>
     </div>
 
-     <!-- Comment section -->  
+     <!-- Comment section -->
 
     <div class="row">
         <div class="col-md-8 card mb-4 mt-3">
@@ -100,6 +100,8 @@
                         </span> wrote:
                     </p>
                         {{ comment.body | linebreaks }}
+
+                    <p><a href="/comment/{{ comment.id }}">View comment</a></p>
                 </div>
                 {% endfor %}
             </div>
@@ -126,7 +128,7 @@
                 </form>
                 {% endif %}
                 {% endif %}
-                
+
             </div>
         </div>
     </div>
