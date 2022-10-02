@@ -101,7 +101,26 @@
                     </p>
                         {{ comment.body | linebreaks }}
 
-                    <p><a href="/comment/{{ comment.id }}">View comment</a></p>
+                        [{{ comment_id }}, {{ comment_task }}]
+
+                        <form class="d-inline" method="POST">
+                            {% csrf_token %}
+
+                            <div id="div_id_body" class="form-group">
+                              <label for="id_body" class=" requiredField">Body<span class="asteriskField">*</span></label>
+                              <div>
+                                <textarea name="body" cols="40" rows="10" class="textarea form-control" required="" id="id_body">
+                                  {{ comment.body | linebreaks }}
+                                </textarea>
+                              </div>
+                            </div>
+
+                            <input type="hidden" name="comment_id" value="{{ comment.id }}">
+                            <input type="hidden" name="comment_task" value="edit">
+
+                            <button type="submit" class="comment-submit btn btn-signup btn-lg">Edit Comment</button>
+                        </form>
+
                 </div>
                 {% endfor %}
             </div>

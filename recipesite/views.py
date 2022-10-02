@@ -31,7 +31,9 @@ class RecipeDetail(View):
                 "comments": comments,
                 "commented": False,
                 "liked": liked,
-                "comment_form": CommentForm()
+                "comment_form": CommentForm(),
+                "comment_id": null,
+                "comment_task": null
             },
         )
 
@@ -43,16 +45,16 @@ class RecipeDetail(View):
         if recipe.likes.filter(id=self.request.user.id).exists():
             liked = True
 
-        comment_form = CommentForm(data=request.POST)
+        # comment_form = CommentForm(data=request.POST)
 
-        if comment_form.is_valid():
-            comment_form.instance.email = request.user.email
-            comment_form.instance.name = request.user.username
-            comment = comment_form.save(commit=False)
-            comment.recipe = recipe
-            comment.save()
-        else:
-            comment_form = CommentForm()
+        # if comment_form.is_valid():
+        #     comment_form.instance.email = request.user.email
+        #     comment_form.instance.name = request.user.username
+        #     comment = comment_form.save(commit=False)
+        #     comment.recipe = recipe
+        #     comment.save()
+        # else:
+        #     comment_form = CommentForm()
 
         return render(
             request,
@@ -62,7 +64,9 @@ class RecipeDetail(View):
                 "comments": comments,
                 "commented": True,
                 "liked": liked,
-                "comment_form": CommentForm()
+                "comment_id": request.POST['comment_id'],
+                "comment_task": request.POST['comment_task'],
+                # "comment_form": CommentForm()
             },
         )
 
@@ -78,17 +82,3 @@ class RecipeLike(View):
             recipe.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
-
-
-class CommentDetail(View):
-
-    def get(self, request, id, *args, **kwargs):
-        comment = get_object_or_404(Comment, id=id)
-
-        return render(
-            request,
-            "comment_detail.html",
-            {
-                "comment": comment,
-            },
-        )
