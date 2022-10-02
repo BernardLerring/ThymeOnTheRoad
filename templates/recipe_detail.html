@@ -90,6 +90,9 @@
     <div class="row">
         <div class="col-md-8 card mb-4 mt-3">
             <h3>Comments:</h3>
+            {% if comment_deleted %}
+              <p><strong>Comment deleted!</strong></p>
+            {% endif %}
             <div class="card-body">
                 {% for comment in comments %}
                 <div class="comments" style="padding: 10px;">
@@ -117,6 +120,15 @@
                             <input type="hidden" name="comment_task" value="edit">
 
                             <button type="submit" class="comment-submit btn btn-signup btn-lg">Edit Comment</button>
+                        </form>
+
+                        <form class="d-inline" method="POST">
+                            {% csrf_token %}
+
+                            <input type="hidden" name="comment_id" value="{{ comment.id }}">
+                            <input type="hidden" name="comment_task" value="delete">
+
+                            <button type="submit" class="comment-submit btn btn-signup btn-lg">Delete Comment</button>
                         </form>
 
                 </div>

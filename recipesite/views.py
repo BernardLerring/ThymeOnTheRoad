@@ -19,6 +19,9 @@ class RecipeDetail(View):
         queryset = Recipe.objects.filter(status=1)
         recipe = get_object_or_404(queryset, slug=slug)
         comments = recipe.comments.filter(approved=True).order_by('created_on')
+
+        comment_deleted = False
+
         liked = False
         if recipe.likes.filter(id=self.request.user.id).exists():
             liked = True
@@ -32,8 +35,7 @@ class RecipeDetail(View):
                 "commented": False,
                 "liked": liked,
                 "comment_form": CommentForm(),
-                "comment_id": False,
-                "comment_task": False
+                "comment_deleted": False
             },
         )
 
@@ -41,6 +43,9 @@ class RecipeDetail(View):
         queryset = Recipe.objects.filter(status=1)
         recipe = get_object_or_404(queryset, slug=slug)
         comments = recipe.comments.filter(approved=True).order_by('created_on')
+
+        comment_deleted = False
+
         liked = False
         if recipe.likes.filter(id=self.request.user.id).exists():
             liked = True
@@ -51,6 +56,11 @@ class RecipeDetail(View):
                     comment_form = CommentForm(instance=Comment.objects.get(id=request.POST['comment_id']), data=request.POST)
                     comment = comment_form.save(commit=False)
                     comment.save()
+
+                elif: request.POST['comment_task'] == 'delete':
+                    comment = get_object_or_404(Comment, id=comment_id)
+                    comment.delete()
+                    comment_deleted = True
 
         else:
             comment_form = CommentForm(data=request.POST)
@@ -70,6 +80,7 @@ class RecipeDetail(View):
                 "comments": comments,
                 "commented": True,
                 "liked": liked,
+                "comment_deleted": comment_deleted,
                 "comment_form": CommentForm()
             },
         )
