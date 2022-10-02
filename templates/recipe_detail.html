@@ -101,8 +101,6 @@
                     </p>
                         {{ comment.body | linebreaks }}
 
-                        [{{ comment_id }}, {{ comment_task }}]
-
                         <form class="d-inline" method="POST">
                             {% csrf_token %}
 
@@ -110,7 +108,7 @@
                               <label for="id_body" class=" requiredField">Body<span class="asteriskField">*</span></label>
                               <div>
                                 <textarea name="body" cols="40" rows="10" class="textarea form-control" required="" id="id_body">
-                                  {{ comment.body | linebreaks }}
+                                  {{ comment.body }}
                                 </textarea>
                               </div>
                             </div>

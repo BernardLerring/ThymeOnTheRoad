@@ -45,6 +45,12 @@ class RecipeDetail(View):
         if recipe.likes.filter(id=self.request.user.id).exists():
             liked = True
 
+        if request.POST['comment_id'] and request.POST['comment_task'] == 'edit':
+            comment_form = CommentForm(instance=Comment.objects.get(id=request.POST['comment_id']), data=request.POST)
+            comment = comment_form.save(commit=False)
+            comment.save()
+
+
         # comment_form = CommentForm(data=request.POST)
 
         # if comment_form.is_valid():
@@ -64,8 +70,6 @@ class RecipeDetail(View):
                 "comments": comments,
                 "commented": True,
                 "liked": liked,
-                "comment_id": request.POST['comment_id'],
-                "comment_task": request.POST['comment_task'],
                 # "comment_form": CommentForm()
             },
         )
