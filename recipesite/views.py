@@ -32,8 +32,8 @@ class RecipeDetail(View):
                 "commented": False,
                 "liked": liked,
                 "comment_form": CommentForm(),
-                "comment_id": null,
-                "comment_task": null
+                "comment_id": False,
+                "comment_task": False
             },
         )
 
