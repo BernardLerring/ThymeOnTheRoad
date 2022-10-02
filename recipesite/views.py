@@ -50,13 +50,17 @@ class RecipeDetail(View):
             liked = True
 
         if 'comment_id' in request.POST:
+            comment_id = request.POST['comment_id']
+
             if 'comment_task' in request.POST:
-                if request.POST['comment_task'] == 'edit':
-                    comment_form = CommentForm(instance=Comment.objects.get(id=request.POST['comment_id']), data=request.POST)
+                comment_task = request.POST['comment_task']
+
+                if comment_task == 'edit':
+                    comment_form = CommentForm(instance=Comment.objects.get(id=comment_id), data=request.POST)
                     comment = comment_form.save(commit=False)
                     comment.save()
 
-                elif request.POST['comment_task'] == 'delete':
+                elif comment_task == 'delete':
                     comment = get_object_or_404(Comment, id=comment_id)
                     comment.delete()
                     comment_deleted = True
