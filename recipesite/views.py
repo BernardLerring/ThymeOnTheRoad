@@ -56,7 +56,7 @@ class RecipeDetail(View):
                     comment = comment_form.save(commit=False)
                     comment.save()
 
-                elif: request.POST['comment_task'] == 'delete':
+                elif request.POST['comment_task'] == 'delete':
                     comment = get_object_or_404(Comment, id=comment_id)
                     comment.delete()
                     comment_deleted = True
