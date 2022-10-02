@@ -43,6 +43,7 @@ class RecipeDetail(View):
         queryset = Recipe.objects.filter(status=1)
         recipe = get_object_or_404(queryset, slug=slug)
 
+        commented = False
         comment_deleted = False
 
         liked = False
@@ -74,6 +75,7 @@ class RecipeDetail(View):
                 comment = comment_form.save(commit=False)
                 comment.recipe = recipe
                 comment.save()
+                commented = True
 
         comments = recipe.comments.filter(approved=True).order_by('created_on')
 
@@ -83,7 +85,7 @@ class RecipeDetail(View):
             {
                 "recipe": recipe,
                 "comments": comments,
-                "commented": True,
+                "commented": commented,
                 "liked": liked,
                 "comment_deleted": comment_deleted,
                 "comment_form": CommentForm()
