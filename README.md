@@ -148,6 +148,8 @@ Being a recipe website, images of the food are important. However, as lots of th
 
 - [GitPod](https://gitpod.io/) was used for all writing of code.
 
+- [SendInBlue](https://www.sendinblue.com/) was used to allow users to sign up with email.
+
 - :hover and :active pseudo classes were used to change colours on links adding to the User Experience.
 
 ## Testing
@@ -380,3 +382,9 @@ TheRoad live site, click here [ThymeOnTheRoad](https://thymeontheroad.herokuapp.
 - My wife for being my UX companion for the site and for helping test it for me, as well as providing the artwork.
 
 - My mentor Chris for his feedback and encouragement throughout the project.
+
+### For Resubmission
+
+- Wrote edit and delete functions in to recipe detail.
+
+- Removed 500 error when users sign up by using SendInBlue email service
