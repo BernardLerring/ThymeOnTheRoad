@@ -383,6 +383,8 @@ TheRoad live site, click here [ThymeOnTheRoad](https://thymeontheroad.herokuapp.
 
 - My mentor Chris for his feedback and encouragement throughout the project.
 
+- My friend Keir for helping me write some of the code associated with my resubmission.
+
 ### For Resubmission
 
 - Wrote edit and delete functions in to recipe detail.
